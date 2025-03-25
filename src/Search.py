@@ -8,8 +8,7 @@ import streamlit as st
 from requests import get
 
 # OMDb API key
-API_KEY = "3baa3ab7"
-#API_KEY = st.secrets["MY_API_KEY"]
+API_KEY = st.secrets["MY_API_KEY"]
 
 def get_movie_data(title: str, year: int) -> dict:
     """Fetch movie data JSON from the OMDb API."""
