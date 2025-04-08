@@ -6,7 +6,7 @@ st.title("Movie Information Presentation")
 
 if "movie_data" in st.session_state:
     movie_data = st.session_state["movie_data"]
-    
+
     if movie_data.get("Response", "False") == "False":
         st.error("Movie not found! Please try again with a different title/year.")
     else:
@@ -14,7 +14,7 @@ if "movie_data" in st.session_state:
         poster_url = movie_data.get("Poster", "")
         if poster_url and poster_url != "N/A":
             st.image(poster_url, width=300)
-        
+
         st.markdown(f"**Year:** {movie_data.get('Year', 'N/A')}")
         st.markdown(f"**Rated:** {movie_data.get('Rated', 'N/A')}")
         st.markdown(f"**Released:** {movie_data.get('Released', 'N/A')}")
