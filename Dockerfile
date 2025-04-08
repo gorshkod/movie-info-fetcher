@@ -5,7 +5,8 @@ FROM python:3.13-slim
 WORKDIR /app
 
 # Copy the application files into the container
-COPY /src /app/src
+COPY /src/Search.py /app/Search.py
+COPY /src/pages /app/pages
 COPY requirements.txt /app/requirements.txt
 
 # Install dependencies
@@ -16,7 +17,7 @@ EXPOSE 8501
 
 # API key handling
 ARG API_KEY
-ENV API_KEY=${API_KEY}
+ENV API_KEY=$API_KEY
 
 # Set the command to run the Streamlit app
-CMD ["streamlit", "run", "/src/Search.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "Search.py", "--server.port=8501", "--server.address=0.0.0.0"]
