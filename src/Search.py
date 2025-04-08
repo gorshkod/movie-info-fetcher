@@ -14,7 +14,7 @@ from requests import get
 try:
     # Attempt to read the secret from st.secrets
     API_KEY = st.secrets["STREAMLIT_ENV"]
-except StreamlitSecretNotFoundError:
+except st.errors.StreamlitSecretNotFoundError:
     # Use environment variables as a fallback
     API_KEY = environ.get("API_KEY", None)
 
