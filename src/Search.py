@@ -4,11 +4,16 @@ Main page of the Streamlit app that uses OMDb (Open Movie Database) API to fetch
 Author: Daniil Gorshkov
 ChatGPT o3-mini-high used to assist with Streamlit app structure
 """
+from os import environ
 import streamlit as st
 from requests import get
-from os import environ
 
-# OMDb API key
+
+# If running on Streamlit Community Cloud, load Streamlit secrets into os.environ
+if "STREAMLIT_ENV" in st.secrets: # Set this flag in Streamlit secrets
+    environ["API_KEY"] = st.secrets["API_KEY"]
+
+# OMDb API key handling
 API_KEY = environ.get("API_KEY", None)
 
 st.set_page_config(page_title="Search")

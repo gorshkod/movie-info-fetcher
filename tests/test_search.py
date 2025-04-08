@@ -5,7 +5,7 @@ Utilizes Monkeypatch to replace HTTP requests to the API with a fake request
 """
 
 import pytest
-from search import get_movie_data
+from Search import get_movie_data
 
 class FakeResponse:
     def __init__(self, json_data: dict) -> None:
