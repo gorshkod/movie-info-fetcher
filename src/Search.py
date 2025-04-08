@@ -9,12 +9,15 @@ import streamlit as st
 from requests import get
 
 
-# If running on Streamlit Community Cloud, load Streamlit secrets into os.environ
-if "STREAMLIT_ENV" in st.secrets:  # Set this flag in Streamlit secrets
-    environ["API_KEY"] = st.secrets["API_KEY"]
-
 # OMDb API key handling
-API_KEY = environ.get("API_KEY", None)
+# If running on Streamlit Community Cloud, load Streamlit secrets into os.environ
+try:
+    # Attempt to read the secret from st.secrets
+    API_KEY = st.secrets["STREAMLIT_ENV"]
+except StreamlitSecretNotFoundError:
+    # Use environment variables as a fallback
+    API_KEY = environ.get("API_KEY", None)
+
 
 st.set_page_config(page_title="Search")
 
