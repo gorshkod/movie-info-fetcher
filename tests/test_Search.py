@@ -43,7 +43,7 @@ def fake_get_error(url: str) -> FakeResponse:
 
 def test_get_movie_data_success(monkeypatch: pytest.MonkeyPatch) -> None:
     # Replace the 'get' function in the Search module with fake_get_success.
-    monkeypatch.setattr("search.get", fake_get_success)
+    monkeypatch.setattr("Search.get", fake_get_success)
     movie_data = get_movie_data("Inception", 2010)
     assert movie_data["Response"] == "True"
     assert movie_data["Title"] == "Inception"
@@ -51,7 +51,7 @@ def test_get_movie_data_success(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_get_movie_data_error(monkeypatch: pytest.MonkeyPatch) -> None:
     # Replace the 'get' function in the Search module with fake_get_error.
-    monkeypatch.setattr("search.get", fake_get_error)
+    monkeypatch.setattr("Search.get", fake_get_error)
     movie_data = get_movie_data("Nonexistent Movie", 1900)
     assert movie_data["Response"] == "False"
     assert movie_data["Error"] == "Movie not found!"
