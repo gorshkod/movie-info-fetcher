@@ -13,7 +13,7 @@ from requests import get
 # If running on Streamlit Community Cloud, load Streamlit secrets into os.environ
 try:
     # Attempt to read the secret from st.secrets
-    API_KEY = st.secrets["STREAMLIT_ENV"]
+    API_KEY = st.secrets["API_KEY"]
 except st.errors.StreamlitSecretNotFoundError:
     # Use environment variables as a fallback
     API_KEY = environ.get("API_KEY", None)
