@@ -1,7 +1,7 @@
 # Movie Info Fetcher
 
-![run-tests](https://img.shields.io/github/actions/workflow/status/gorshkod/movie-info-fetcher/run-tests.yml?branch=main)
-![docker-publish](https://img.shields.io/github/actions/workflow/status/gorshkod/movie-info-fetcher/docker-publish.yml?branch=main)
+![run-tests](https://img.shields.io/github/actions/workflow/status/gorshkod/movie-info-fetcher/run-tests.yml?branch=main&label=run-tests)
+![docker-publish](https://img.shields.io/github/actions/workflow/status/gorshkod/movie-info-fetcher/docker-publish.yml?branch=main&label=docker-publish)
 
 A simple Streamlit application that uses the OMDb API to fetch movie information based on user input. 
 Deployed using Streamlit Community Cloud: <https://movie-info-fetcher.streamlit.app/>
